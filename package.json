@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "nativescript-plugin-seed": "^1.0.0",
-    "nativescript-ng-plugin-seed": "^1.0.0",
+    "nativescript-ng2-plugin-seed": "^1.0.0",
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
     "yosay": "^1.0.0",
