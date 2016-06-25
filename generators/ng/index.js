@@ -69,26 +69,25 @@ module.exports = yeoman.Base.extend({
       var dest = this.destinationRoot();
       var that = this;
 
-      walk(root, function (basedir, filename, stat, next) {
+      var execute = function (basedir, filename, stat, next) {
         var relativePath = basedir.replace(root, '');
         var filePath = path.join(basedir, filename);
+        //console.log('relative: ' + relativePath);
 
         if (stat.isDirectory()) {
-
-          // FIXME: if it's deep directory this won't work
-          fs.mkdir(path.join(filename), next);
+          fs.mkdir(path.join(dest, relativePath, filename), next);
+          //console.log('dir: ' + filePath);
+          walk(filePath, execute, function (err) {
+            //console.error('Error on file dir: ' + err);
+          });
           return;
         }
 
+        //console.log('file: ' + filePath);
         fs.readFile(filePath, function (err, stream) {
           if (err) {
-            return console.error(err);
+            return console.error('Error reading file: ' + err);
           }
-
-          // Replace directive.md with README.md
-          //if (filename === 'directive.md') {
-          //  filename = 'README.md';
-          //}
 
           // Replace src
           else if (filename.indexOf('yourplugin') > -1) {
@@ -116,14 +115,16 @@ module.exports = yeoman.Base.extend({
 
           fs.writeFile(writeFilePath, fileString, next);
         });
-      }, function (err) {
-        console.error(err);
+      };
+
+      walk(root, execute, function (err) {
+        //console.error('Error procesing file: ' + err);
       });
     }
   },
 
   install: function () {
-    this.installDependencies();
+    this.npmInstall();
   },
 
   end: function () {
