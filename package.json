@@ -1,6 +1,6 @@
 {
   "name": "generator-nativescript-plugin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generator for nativescript-plugin projects",
   "homepage": "https://github.com/peoplewareDo/generator-nativescript-plugin",
   "author": {

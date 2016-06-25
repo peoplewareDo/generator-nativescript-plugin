@@ -48,7 +48,7 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'name',
       message: 'What is your plugin name?',
-      default: 'my-plugin'
+      default: 'yourplugin'
     }, function (result) {
       var name = result.name.replace(/\ /g, '-');
 
@@ -127,13 +127,13 @@ module.exports = yeoman.Base.extend({
           fileString = fileString.replace(/theDirective/g, that.options.name.camel);
           fileString = fileString.replace(/the.directive/g,
             that.options.author.githubId + '.' + that.options.name.dashed);
-          fileString = fileString.replace(/angular-directive-template/g, that.options.name.dashed);
-          fileString = fileString.replace(/directive.js/g, that.options.name.dashed + '.js');
-          fileString = fileString.replace(/directive.css/g, that.options.name.dashed + '.css');
-          fileString = fileString.replace(/directive.less/g, that.options.name.dashed + '.less');
-          fileString = fileString.replace(/directive.html/g, that.options.name.dashed + '.html');
+          fileString = fileString.replace(/nativescript-yourplugin/g, 'nativescript-' + that.options.name.dashed);
+          fileString = fileString.replace(/yourplugin.android.ts/g, that.options.name.dashed + '.android.ts');
+          fileString = fileString.replace(/yourplugin.common.ts/g, that.options.name.dashed + '.common.ts');
+          fileString = fileString.replace(/yourplugin.ios.ts/g, that.options.name.dashed + '.ios.ts');
+          fileString = fileString.replace(/yourplugin/g, that.options.name.dashed);
           fileString = fileString.replace(/[t|T]he [d|D]irective/g, that.options.name.spaced);
-          fileString = fileString.replace(/Mohsen Azimi/g, that.options.author.name);
+          fileString = fileString.replace(/YourName/g, that.options.author.name);
           fileString = fileString.replace(/<mazimi@apigee.com>/g,'<' + that.options.author.email + '>');
           fileString = fileString.replace('Angular Publishable Directive Template', '');
 
