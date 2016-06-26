@@ -86,7 +86,7 @@ module.exports = yeoman.Base.extend({
 
           // Replace src
           else if (filename.indexOf('nativescript-ng2-yourplugin') > -1) {
-            filename = filename.replace('nativescript-ng2-yourplugin', that.options.name.dashed);
+            filename = filename.replace('nativescript-ng2-yourplugin', 'nativescript-' + that.options.name.dashed);
           }
 
           var fileString = stream.toString();
@@ -97,10 +97,6 @@ module.exports = yeoman.Base.extend({
           fileString = fileString.replace(/nativescript-ng2-yourplugin/g, 'nativescript-' + that.options.name.dashed);
           fileString = fileString.replace(/[Y|y]our[P|p]lugin/g, that.options.name.camel);
           //fileString = fileString.replace(/the.directive/g, that.options.author.githubId + '.' + that.options.name.dashed);
-          fileString = fileString.replace(/nativescript-yourplugin/g, 'nativescript-' + that.options.name.dashed);
-          fileString = fileString.replace(/yourplugin.android.ts/g, that.options.name.dashed + '.android.ts');
-          fileString = fileString.replace(/yourplugin.common.ts/g, that.options.name.dashed + '.common.ts');
-          fileString = fileString.replace(/yourplugin.ios.ts/g, that.options.name.dashed + '.ios.ts');
           fileString = fileString.replace(/yourplugin.js/g, that.options.name.dashed + '.js');
           fileString = fileString.replace(/[y|Y]our [n|N]ame/g, that.options.author.name);
           fileString = fileString.replace(/YourName/g, that.options.author.name);
