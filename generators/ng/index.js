@@ -92,6 +92,9 @@ module.exports = yeoman.Base.extend({
           else if (filename.indexOf('nativescript-ng2-yourplugin') > -1) {
             filename = filename.replace('nativescript-ng2-yourplugin', 'nativescript-' + that.options.name.dashed);
           }
+          else if (filename.indexOf('yourplugin') > -1) {
+            filename = filename.replace('yourplugin', that.options.name.camel);
+          }          
 
           var fileString = stream.toString();
           var writeFilePath = path.join(dest, relativePath, filename);
