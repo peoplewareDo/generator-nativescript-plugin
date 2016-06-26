@@ -23,15 +23,10 @@ module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the solid ' + chalk.red('generator-nativescript-plugin') + ' generator!'
+      'Welcome to the solid ' + chalk.red('nativescript-ng2-plugin-seed') + ' generator!'
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }, {
         type: 'input',
         name: 'name',
         message: 'What is your plugin name?',
@@ -90,15 +85,16 @@ module.exports = yeoman.Base.extend({
           }
 
           // Replace src
-          else if (filename.indexOf('yourplugin') > -1) {
-            filename = filename.replace('yourplugin', that.options.name.dashed);
+          else if (filename.indexOf('nativescript-ng2-yourplugin') > -1) {
+            filename = filename.replace('nativescript-ng2-yourplugin', that.options.name.dashed);
           }
 
           var fileString = stream.toString();
           var writeFilePath = path.join(dest, relativePath, filename);
 
           // Templating
-          fileString = fileString.replace(/nativescript-plugin-seed/g, 'nativescript-' + that.options.name.dashed);
+          fileString = fileString.replace(/nativescript-ng2-plugin-seed/g, 'nativescript-' + that.options.name.dashed);
+          fileString = fileString.replace(/nativescript-ng2-yourplugin/g, 'nativescript-' + that.options.name.dashed);
           fileString = fileString.replace(/[Y|y]our[P|p]lugin/g, that.options.name.camel);
           //fileString = fileString.replace(/the.directive/g, that.options.author.githubId + '.' + that.options.name.dashed);
           fileString = fileString.replace(/nativescript-yourplugin/g, 'nativescript-' + that.options.name.dashed);
@@ -106,10 +102,10 @@ module.exports = yeoman.Base.extend({
           fileString = fileString.replace(/yourplugin.common.ts/g, that.options.name.dashed + '.common.ts');
           fileString = fileString.replace(/yourplugin.ios.ts/g, that.options.name.dashed + '.ios.ts');
           fileString = fileString.replace(/yourplugin.js/g, that.options.name.dashed + '.js');
-          fileString = fileString.replace(/[y|Y]ou [n|N]ame/g, that.options.name.spaced);
+          fileString = fileString.replace(/[y|Y]our [n|N]ame/g, that.options.author.name);
           fileString = fileString.replace(/YourName/g, that.options.author.name);
           fileString = fileString.replace(/NathanWalker/g, that.options.author.githubId);
-          //fileString = fileString.replace(/<mazimi@apigee.com>/g,'<' + that.options.author.email + '>');
+          fileString = fileString.replace(/youremail@yourdomain.com/g,'<' + that.options.author.email + '>');
           //fileString = fileString.replace('Angular Publishable Directive Template', '');
 
 
