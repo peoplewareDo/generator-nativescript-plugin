@@ -11,7 +11,7 @@ var fs = require('fs');
 module.exports = yeoman.Base.extend({
   initializing: function () {
     // Use nativescript-ng-plugin-seed npm module as template
-    this.sourceRoot(path.join(__dirname, '../../node_modules/nativescript-ng-plugin-seed/'));
+    this.sourceRoot(path.join(__dirname, '../../node_modules/nativescript-ng2-plugin-seed/'));
     this.options = {
       author: {
         name: this.user.git.name(),
