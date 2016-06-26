@@ -70,6 +70,10 @@ module.exports = yeoman.Base.extend({
         //console.log('relative: ' + relativePath);
 
         if (stat.isDirectory()) {
+          // ignore node_modules folder
+          if (filename === 'node_modules') {
+            return next();
+          };             
           fs.mkdir(path.join(dest, relativePath, filename), next);
           //console.log('dir: ' + filePath);
           walk(filePath, execute, function (err) {
