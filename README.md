@@ -13,7 +13,11 @@ npm install -g generator-nativescript-plugin
 Then generate your new project:
 
 ```bash
+//to generate a normal nativescript typescript plugin
 yo nativescript-plugin
+
+//to generate a nativescript + angular2 plugin 
+yo nativescript-plugin:ng
 ```
 
 ## Getting To Know Yeoman
