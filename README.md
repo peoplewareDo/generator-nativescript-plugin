@@ -29,7 +29,7 @@ yo nativescript-plugin:ng
 
 ## License
 
-MIT © [victorsosa](www.peopleware.do)
+MIT © [PeopleWare](www.peopleware.do)
 
 
 [npm-image]: https://badge.fury.io/js/generator-nativescript-plugin.svg
