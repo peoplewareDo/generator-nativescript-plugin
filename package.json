@@ -1,6 +1,6 @@
 {
   "name": "generator-nativescript-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generator for nativescript-plugin projects",
   "homepage": "https://github.com/peoplewareDo/generator-nativescript-plugin",
   "author": {
@@ -17,7 +17,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "nativescript-plugin-seed": "^1.0.0",
+    "nativescript-plugin-seed": "^1.0.2",
     "nativescript-ng2-plugin-seed": "^1.0.0",
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
