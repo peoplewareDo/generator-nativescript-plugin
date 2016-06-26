@@ -27,11 +27,6 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }, {
         type: 'input',
         name: 'name',
         message: 'What is your plugin name?',
@@ -106,10 +101,10 @@ module.exports = yeoman.Base.extend({
           fileString = fileString.replace(/yourplugin.common.ts/g, that.options.name.dashed + '.common.ts');
           fileString = fileString.replace(/yourplugin.ios.ts/g, that.options.name.dashed + '.ios.ts');
           fileString = fileString.replace(/yourplugin.js/g, that.options.name.dashed + '.js');
-          fileString = fileString.replace(/[y|Y]ou [n|N]ame/g, that.options.name.spaced);
+          fileString = fileString.replace(/[y|Y]our [n|N]ame/g, that.options.author.name);
           fileString = fileString.replace(/YourName/g, that.options.author.name);
           fileString = fileString.replace(/NathanWalker/g, that.options.author.githubId);
-          //fileString = fileString.replace(/<mazimi@apigee.com>/g,'<' + that.options.author.email + '>');
+          fileString = fileString.replace(/youremail@yourdomain.com/g,'<' + that.options.author.email + '>');
           //fileString = fileString.replace('Angular Publishable Directive Template', '');
 
 
