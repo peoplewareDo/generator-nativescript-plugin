@@ -1,4 +1,4 @@
-# generator-nativescript-plugin [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-nativescript-plugin [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generator for nativescript-plugin projects
 
 ## Installation
