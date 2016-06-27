@@ -1,5 +1,5 @@
-# generator-nativescript-plugin [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-[![npm](https://img.shields.io/npm/dt/generator-nativescript-plugin.svg?label=npm%20downloads)](https://www.npmjs.com/package/generator-nativescript-plugin)
+# generator-nativescript-plugin [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![npm](https://img.shields.io/npm/dt/generator-nativescript-plugin.svg?label=npm%20downloads)](https://www.npmjs.com/package/generator-nativescript-plugin)
+
 > Generator for nativescript-plugin projects
 
 ## Installation
