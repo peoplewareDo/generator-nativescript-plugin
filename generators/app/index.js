@@ -41,14 +41,13 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
-
       var name = props.name.replace(/\ /g, '-');
       this.options.name = {
         dashed: name,
         camel: camelCase(name),
-        spaced: capitalize(name.replace(/\-/, '-'))
+        spaced: capitalize(name.replace(/\-/, ' ')),
+        capitalize: capitalize.words(name).replace(/\-/, '')
       };
-
       // TDOD: validate user name if it contain illegal chars
       var username = props.username.replace(/\ /g, '');
       this.options.author.githubId = username;
@@ -98,19 +97,17 @@ module.exports = yeoman.Base.extend({
 
           // Templating
           fileString = fileString.replace(/nativescript-plugin-seed/g, 'nativescript-' + that.options.name.dashed);
-          fileString = fileString.replace(/[Y|y]our[P|p]lugin/g, that.options.name.camel);
-          //fileString = fileString.replace(/the.directive/g, that.options.author.githubId + '.' + that.options.name.dashed);
           fileString = fileString.replace(/nativescript-yourplugin/g, 'nativescript-' + that.options.name.dashed);
           fileString = fileString.replace(/yourplugin.android.ts/g, that.options.name.dashed + '.android.ts');
           fileString = fileString.replace(/yourplugin.common.ts/g, that.options.name.dashed + '.common.ts');
           fileString = fileString.replace(/yourplugin.ios.ts/g, that.options.name.dashed + '.ios.ts');
           fileString = fileString.replace(/yourplugin.js/g, that.options.name.dashed + '.js');
+          fileString = fileString.replace(/yourplugin/g, that.options.name.dashed);
+          fileString = fileString.replace(/YourPlugin/g, that.options.name.capitalize);
           fileString = fileString.replace(/[y|Y]our [n|N]ame/g, that.options.author.name);
           fileString = fileString.replace(/YourName/g, that.options.author.name);
           fileString = fileString.replace(/NathanWalker/g, that.options.author.githubId);
           fileString = fileString.replace(/youremail@yourdomain.com/g,'<' + that.options.author.email + '>');
-          //fileString = fileString.replace('Angular Publishable Directive Template', '');
-
 
           fs.writeFile(writeFilePath, fileString, next);
         });
@@ -128,7 +125,7 @@ module.exports = yeoman.Base.extend({
 
   end: function () {
     this.log(yosay(
-      'Happy coding... ' + chalk.green('enjoy') + ' you plugin!'
+      'Happy coding, ' + chalk.green('enjoy') + ' you plugin!'
     ));
   }
 });

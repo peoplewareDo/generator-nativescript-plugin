@@ -46,7 +46,8 @@ module.exports = yeoman.Base.extend({
       this.options.name = {
         dashed: name,
         camel: camelCase(name),
-        spaced: capitalize(name.replace(/\-/, '-'))
+        spaced: capitalize(name.replace(/\-/, ' ')),
+        capitalize: capitalize.words(name).replace(/\-/, '')
       };
 
       // TDOD: validate user name if it contain illegal chars
@@ -72,7 +73,7 @@ module.exports = yeoman.Base.extend({
         if (stat.isDirectory()) {
           // ignore node_modules folder
           if (filename === 'node_modules') {
-            return next();n
+            return next();
           };          
           fs.mkdir(path.join(dest, relativePath, filename), next);
           //console.log('dir: ' + filePath);
@@ -102,15 +103,13 @@ module.exports = yeoman.Base.extend({
           // Templating
           fileString = fileString.replace(/nativescript-ng2-plugin-seed/g, 'nativescript-' + that.options.name.dashed);
           fileString = fileString.replace(/nativescript-ng2-yourplugin/g, 'nativescript-' + that.options.name.dashed);
-          fileString = fileString.replace(/[Y|y]our[P|p]lugin/g, that.options.name.camel);
-          //fileString = fileString.replace(/the.directive/g, that.options.author.githubId + '.' + that.options.name.dashed);
           fileString = fileString.replace(/yourplugin.js/g, 'nativescript-' + that.options.name.dashed + '.js');
+          fileString = fileString.replace(/yourplugin/g, that.options.name.camel);
+          fileString = fileString.replace(/YourPlugin/g, that.options.name.capitalize);          
           fileString = fileString.replace(/[y|Y]our [n|N]ame/g, that.options.author.name);
           fileString = fileString.replace(/YourName/g, that.options.author.name);
           fileString = fileString.replace(/NathanWalker/g, that.options.author.githubId);
           fileString = fileString.replace(/youremail@yourdomain.com/g,'<' + that.options.author.email + '>');
-          //fileString = fileString.replace('Angular Publishable Directive Template', '');
-
 
           fs.writeFile(writeFilePath, fileString, next);
         });
