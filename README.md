@@ -18,7 +18,7 @@ Then generate your new project:
 yo nativescript-plugin
 
 //to generate a nativescript + angular2 plugin 
-yo nativescript-plugin:ng
+yo nativescript-plugin:ng2
 ```
 
 ## Getting To Know Yeoman
