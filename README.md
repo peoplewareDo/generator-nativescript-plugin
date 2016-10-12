@@ -30,7 +30,7 @@ yo nativescript-plugin:ng2
 
 ## License
 
-MIT © [PeopleWare](www.peopleware.do)
+MIT © [PeopleWare](http://www.peopleware.do)
 
 
 [npm-image]: https://badge.fury.io/js/generator-nativescript-plugin.svg
